@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade JavaScript 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            border: 5px solid #7a7671;
+            padding: 0px;
+            border-radius: 10px;
+            width: 300px;
+            background-color: #dfe2e6;
+            box-shadow: 0 0 0 4px rgba(255, 119, 0, 1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .buttons button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        #resultado {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minha Calculadora</h1>
+        <label for="num1">Primeiro Número</label>
+        <input type="number" id="num1" placeholder="Digite o primeiro número">
+        <label for="num2">Segundo Número</label>
+        <input type="number" id="num2" placeholder="Digite o segundo número">
+        <div class="buttons">
+            <button onclick="calcular('soma')">Soma</button>
+            <button onclick="calcular('subtrair')">Subtrair</button>
+            <button onclick="calcular('multiplicar')">Multiplicar</button>
+            <button onclick="calcular('dividir')">Dividir</button>
+
+        <p id="resultado">O Resultado é: </p>
+        
+    <script> 
+    
+    function calcular(operacao) {
+    const num1 = parseFloat(document.getElementById("num1").value);
+    const num2 = parseFloat(document.getElementById("num2").value);
+    let resultado;
+
+    if (isNaN(num1) || isNaN(num2)) {
+        resultado = "Por favor, insira números nos campos acima.";
+    } else {
+        switch (operacao) {
+
+            case 'soma':
+                resultado = num1 + num2;
+                break;
+
+            case 'subtrair':
+                resultado = num1 - num2;
+                break;
+
+            case 'multiplicar':
+                resultado = num1 * num2;
+                break;
+
+            case 'dividir':
+                resultado = num2 !== 0 ? num1 / num2 : "Erro: Divisão por zero";
+                break;
+
+            default:
+                resultado = "Operação Inválida";
+        }
+    }
+
+    document.getElementById("resultado").innerText = "O resultado é: " + resultado;
+}
+    </script>
+
+</body>
+</html>
